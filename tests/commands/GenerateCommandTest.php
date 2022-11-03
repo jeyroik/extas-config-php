@@ -17,12 +17,6 @@ class GenerateCommandTest extends TestCase
 {
     use TSnuffConsole;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        mkdir(__DIR__ . '/../tmp', 777);
-    }
-
     /**
      * Clean up
      */
@@ -34,7 +28,6 @@ class GenerateCommandTest extends TestCase
         foreach ($finder->in(__DIR__ . '/../tmp')->files() as $file) {
             unlink($file->getRealPath());
         }
-        rmdir(__DIR__ . '/../tmp');
     }
 
     public function testGenerate()
