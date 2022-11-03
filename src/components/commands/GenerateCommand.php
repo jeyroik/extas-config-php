@@ -24,23 +24,17 @@ class GenerateCommand extends Command
             ->setDescription('Generate extas[.app][.storage].json from php file.')
             ->setHelp('This command allows you generate extas json config from php file.')
             ->addOption(
-                static::OPTION__GENERATE_PATH,
-                'p',
-                InputOption::VALUE_OPTIONAL,
+                static::OPTION__GENERATE_PATH, 'p', InputOption::VALUE_OPTIONAL,
                 'Path to save generated configs',
                 getcwd()
             )
             ->addOption(
-                static::OPTION__SEARCH_PATH,
-                's',
-                InputOption::VALUE_OPTIONAL,
+                static::OPTION__SEARCH_PATH, 's', InputOption::VALUE_OPTIONAL,
                 'Path to search configs',
                 getcwd()
             )
             ->addOption(
-                static::OPTION__GENERATE_PATTERN,
-                'n',
-                InputOption::VALUE_OPTIONAL,
+                static::OPTION__GENERATE_PATTERN, 'n', InputOption::VALUE_OPTIONAL,
                 'Pattern for configs. Result files will have the same name with json extension.',
                 'extas*'
             )
