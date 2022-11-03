@@ -34,7 +34,7 @@ class GenerateCommand extends Command
                 getcwd()
             )
             ->addOption(
-                static::OPTION__GENERATE_PATTERN, 'n', InputOption::VALUE_OPTIONAL,
+                static::OPTION__GENERATE_PATTERN, 'r', InputOption::VALUE_OPTIONAL,
                 'Pattern for configs. Result files will have the same name with json extension.',
                 'extas*'
             )
