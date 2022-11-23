@@ -22,7 +22,14 @@ class CrawlerPHP
 
         foreach ($finder->in($this->path)->files() as $file) {
             $config = include $file->getRealPath();
-            file_put_contents($pathToSave . '/' . $this->getFileName($file), json_encode($config, JSON_PRETTY_PRINT));
+            $parts = explode(DIRECTORY_SEPARATOR, $file->getRealPath());
+
+            $packageDir = $pathToSave . DIRECTORY_SEPARATOR .$parts[count($parts)-2];
+
+            if (!is_dir($packageDir)) {
+                mkdir($packageDir, 0755);
+            }
+            file_put_contents($packageDir . '/' . $this->getFileName($file), json_encode($config, JSON_PRETTY_PRINT));
         }
     }
 

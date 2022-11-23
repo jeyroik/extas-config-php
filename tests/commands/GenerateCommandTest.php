@@ -28,6 +28,10 @@ class GenerateCommandTest extends TestCase
         foreach ($finder->in(__DIR__ . '/../tmp')->files() as $file) {
             unlink($file->getRealPath());
         }
+
+        foreach ($finder->in(__DIR__ . '/../tmp')->directories() as $dir) {
+            rmdir($dir->getRealPath());
+        }
     }
 
     public function testGenerate()
@@ -45,23 +49,24 @@ class GenerateCommandTest extends TestCase
 
         $command->run($input, $output);
         $outputText = $output->fetch();
+        $basePath = __DIR__ . '/../tmp/resources/test_extas.';
 
         $this->assertStringContainsString('Generation done', $outputText);
-        $this->assertFileExists(__DIR__ . '/../tmp/test_extas.json');
-        $this->assertFileExists(__DIR__ . '/../tmp/test_extas.app.json');
-        $this->assertFileExists(__DIR__ . '/../tmp/test_extas.storage.json');
-        $this->assertFileExists(__DIR__ . '/../tmp/test_extas.app.storage.json');
+        $this->assertFileExists($basePath . 'json');
+        $this->assertFileExists($basePath . 'app.json');
+        $this->assertFileExists($basePath . 'storage.json');
+        $this->assertFileExists($basePath . 'app.storage.json');
 
         $files = [
-            __DIR__ . '/../tmp/test_extas.json',
-            __DIR__ . '/../tmp/test_extas.app.json',
-            __DIR__ . '/../tmp/test_extas.storage.json',
-            __DIR__ . '/../tmp/test_extas.app.storage.json'
+            $basePath . 'json',
+            $basePath . 'app.json',
+            $basePath . 'storage.json',
+            $basePath . 'app.storage.json'
         ];
 
         foreach ($files as $name) {
             // check that php is worked
-            $this->assertStringContainsString(10, file_get_contents(__DIR__ . '/../resources/etalon.json', $name));
+            $this->assertStringContainsString(10, file_get_contents($name));
         }
     }
 }
