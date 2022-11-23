@@ -26,7 +26,7 @@ class GenerateCommand extends Command
             ->addOption(
                 static::OPTION__GENERATE_PATH, 'p', InputOption::VALUE_OPTIONAL,
                 'Path to save generated configs',
-                getcwd()
+                getcwd() . '/extas-build'
             )
             ->addOption(
                 static::OPTION__SEARCH_PATH, 's', InputOption::VALUE_OPTIONAL,
