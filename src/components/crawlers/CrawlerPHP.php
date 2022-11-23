@@ -27,7 +27,7 @@ class CrawlerPHP
             $packageDir = $pathToSave . DIRECTORY_SEPARATOR .$parts[count($parts)-2];
 
             if (!is_dir($packageDir)) {
-                mkdir($packageDir, 755);
+                mkdir($packageDir, 0755);
             }
             file_put_contents($packageDir . '/' . $this->getFileName($file), json_encode($config, JSON_PRETTY_PRINT));
         }
