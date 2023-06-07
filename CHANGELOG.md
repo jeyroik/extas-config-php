@@ -1,3 +1,7 @@
+# 0.2.1
+
+- Up deps for finder and console.
+
 # 0.2.0
 
 - Generated files are storing to separeted directories, so any amount of configs can be generated now.
