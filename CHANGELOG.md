@@ -1,3 +1,7 @@
+# 0.3.0
+
+- Add output.
+
 # 0.2.1
 
 - Up deps for finder and console.
