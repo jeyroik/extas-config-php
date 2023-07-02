@@ -57,6 +57,7 @@ class GenerateCommand extends Command
 
         $crawler->run($input->getOption(static::OPTION__GENERATE_PATH));
 
+        $output->writeln($crawler->getOutput());
         $output->writeln(['Generation done']);
 
         return 0;
